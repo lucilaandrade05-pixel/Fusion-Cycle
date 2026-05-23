@@ -38,42 +38,41 @@ def root():
 @app.post("/predict")
 def predict(req: PredictRequest):
     try:
-        import numpy as np
         df = pd.DataFrame([{
             "solute_smiles_canonical": req.solute_smiles,
             "solvent_smiles_canonical": req.solvent_smiles,
             "Temperature [K]": req.temperature_k,
             "solvent_density": req.solvent_density
         }])
+        logS = fc_model.calculate_solubility(df)
         
-        try:
-            logS = fc_model.calculate_solubility(df)
-            logS_value = float(logS.iloc[0])
-            
-            if np.isnan(logS_value) or np.isinf(logS_value):
-                return {
-                    "logS": None,
-                    "solubility_mol_per_L": None,
-                    "status": "out_of_domain",
-                    "message": "Solute-solvent pair is outside model domain."
-                }
-            
-            return {
-                "logS": logS_value,
-                "solubility_mol_per_L": float(10 ** logS_value),
-                "status": "success"
-            }
-            
-        except Exception as model_error:
+        logS_value = logS.iloc[0]
+        
+        # Check if result is valid
+        if logS_value is None or str(logS_value) == 'nan':
             return {
                 "logS": None,
                 "solubility_mol_per_L": None,
                 "status": "out_of_domain",
-                "message": f"Model could not process this pair: {str(model_error)}"
+                "message": "This solute-solvent pair is outside 
+                the model training domain. 
+                Try a different combination."
             }
-            
+        
+        logS_float = float(logS_value)
+        
+        return {
+            "logS": logS_float,
+            "solubility_mol_per_L": float(10 ** logS_float),
+            "status": "success"
+        }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        return {
+            "logS": None,
+            "solubility_mol_per_L": None,
+            "status": "error",
+            "message": f"Prediction failed: {str(e)}"
+        }
 
 @app.post("/screen")
 def screen(req: ScreenRequest):
