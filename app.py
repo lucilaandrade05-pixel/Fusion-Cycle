@@ -45,13 +45,34 @@ def predict(req: PredictRequest):
             "solvent_density": req.solvent_density
         }])
         logS = fc_model.calculate_solubility(df)
+        
+        logS_value = logS.iloc[0]
+        
+        # Check if result is valid
+        if logS_value is None or str(logS_value) == 'nan':
+            return {
+                "logS": None,
+                "solubility_mol_per_L": None,
+                "status": "out_of_domain",
+                "message": "This solute-solvent pair is outside 
+                the model training domain. 
+                Try a different combination."
+            }
+        
+        logS_float = float(logS_value)
+        
         return {
-            "logS": float(logS.iloc[0]),
-            "solubility_mol_per_L": float(10 ** logS.iloc[0]),
+            "logS": logS_float,
+            "solubility_mol_per_L": float(10 ** logS_float),
             "status": "success"
         }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        return {
+            "logS": None,
+            "solubility_mol_per_L": None,
+            "status": "error",
+            "message": f"Prediction failed: {str(e)}"
+        }
 
 @app.post("/screen")
 def screen(req: ScreenRequest):
