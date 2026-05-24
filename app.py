@@ -3,11 +3,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Optional
 import pandas as pd
+import numpy as np
 import sys
 import os
 
 sys.path.insert(0, os.path.dirname(__file__))
-from Fusion_Cycle import model as FusionCycleModel
 
 app = FastAPI(title="AgriSol Solubility API")
 
@@ -18,7 +18,24 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-fc_model = FusionCycleModel()
+# Load experimental database
+EXPERIMENTAL_DB = pd.DataFrame([
+    {"solute_smiles":"O=C1N(CC2=CC=CC=C2Cl)OCC1(C)C","solvent_smiles":"O=C(OCCOC=1C=CC=CC1)C","logS":0.66,"solubility_g_L":1100.0,"solute_name":"Clomazone","solvent_name":"TEX MEX","temperature_K":323.15},
+    {"solute_smiles":"O=C1N(CC2=CC=CC=C2Cl)OCC1(C)C","solvent_smiles":"O=C1CCC2OC1OC2","logS":0.52,"solubility_g_L":800.0,"solute_name":"Clomazone","solvent_name":"Cyrene","temperature_K":298.15},
+    {"solute_smiles":"O=C1N(N)C(SC)=NN=C1C(C)(C)C","solvent_smiles":"O=C(OCC)C(=O)C","logS":0.51,"solubility_g_L":700.0,"solute_name":"Metribuzin","solvent_name":"Ethyl pyruvate","temperature_K":323.15},
+    {"solute_smiles":"OC(C1(CC1)Cl)(CC2=C(Cl)C=CC=C2)CN3N=CNC3=S","solvent_smiles":"CN1C(CCC1)=O","logS":0.50,"solubility_g_L":1100.0,"solute_name":"Prothioconazole","solvent_name":"NMP","temperature_K":323.15},
+    {"solute_smiles":"O=C1N(N)C(SC)=NN=C1C(C)(C)C","solvent_smiles":"O=C1CCC2OC1OC2","logS":0.45,"solubility_g_L":600.0,"solute_name":"Metribuzin","solvent_name":"Cyrene","temperature_K":323.15},
+    {"solute_smiles":"O=C1N(N)C(SC)=NN=C1C(C)(C)C","solvent_smiles":"N#CCC(=O)OCC","logS":0.45,"solubility_g_L":600.0,"solute_name":"Metribuzin","solvent_name":"Ethyl cyanoacetate","temperature_K":323.15},
+])
+
+# Try to load Fusion-Cycle model
+fc_model = None
+try:
+    from Fusion_Cycle import model as FusionCycleModel
+    fc_model = FusionCycleModel()
+    print("Fusion-Cycle model loaded successfully")
+except Exception as e:
+    print(f"Fusion-Cycle model not available: {e}")
 
 class PredictRequest(BaseModel):
     solute_smiles: str
@@ -31,14 +48,36 @@ class ScreenRequest(BaseModel):
     solvents: List[dict]
     temperature_k: float = 298.15
 
+def lookup_experimental(solute_smiles, solvent_smiles, temperature_k):
+    match = EXPERIMENTAL_DB[
+        (EXPERIMENTAL_DB['solute_smiles'] == solute_smiles.strip()) &
+        (EXPERIMENTAL_DB['solvent_smiles'] == solvent_smiles.strip())
+    ]
+    if len(match) > 0:
+        row = match.iloc[0]
+        return {
+            "logS": float(row['logS']),
+            "solubility_mol_per_L": float(10 ** row['logS']),
+            "solubility_g_L": float(row['solubility_g_L']),
+            "status": "success",
+            "source": "experimental",
+            "solute_name": str(row['solute_name']),
+            "solvent_name": str(row['solvent_name'])
+        }
+    return None
+
 @app.get("/")
 def root():
-    return {"status": "AgriSol API is running"}
+    return {"status": "AgriSol API is running", "experimental_pairs": len(EXPERIMENTAL_DB), "model_available": fc_model is not None}
 
 @app.post("/predict")
 def predict(req: PredictRequest):
+    exp = lookup_experimental(req.solute_smiles, req.solvent_smiles, req.temperature_k)
+    if exp:
+        return exp
+    if fc_model is None:
+        return {"logS": None, "solubility_mol_per_L": None, "status": "out_of_domain", "message": "No experimental data found and model unavailable for this pair."}
     try:
-        import numpy as np
         df = pd.DataFrame([{
             "solute_smiles_canonical": req.solute_smiles,
             "solvent_smiles_canonical": req.solvent_smiles,
@@ -49,35 +88,50 @@ def predict(req: PredictRequest):
             logS = fc_model.calculate_solubility(df)
             logS_value = float(logS.iloc[0])
             if np.isnan(logS_value) or np.isinf(logS_value):
-                return {"logS": None, "solubility_mol_per_L": None, "status": "out_of_domain", "message": "Solute-solvent pair is outside model domain."}
-            return {"logS": logS_value, "solubility_mol_per_L": float(10 ** logS_value), "status": "success"}
+                return {"logS": None, "solubility_mol_per_L": None, "status": "out_of_domain", "message": "Pair outside model domain.", "source": "model"}
+            return {"logS": logS_value, "solubility_mol_per_L": float(10 ** logS_value), "status": "success", "source": "model"}
         except Exception as model_error:
-            return {"logS": None, "solubility_mol_per_L": None, "status": "out_of_domain", "message": str(model_error)}
+            return {"logS": None, "solubility_mol_per_L": None, "status": "out_of_domain", "message": str(model_error), "source": "model"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/screen")
 def screen(req: ScreenRequest):
-    try:
-        rows = []
-        for solvent in req.solvents:
-            rows.append({
-                "solute_smiles_canonical": req.solute_smiles,
-                "solvent_smiles_canonical": solvent["smiles"],
-                "Temperature [K]": req.temperature_k,
-                "solvent_density": solvent.get("density")
-            })
-        df = pd.DataFrame(rows)
-        logS = fc_model.calculate_solubility(df)
-        results = []
-        for i, solvent in enumerate(req.solvents):
+    results = []
+    for solvent in req.solvents:
+        exp = lookup_experimental(req.solute_smiles, solvent["smiles"], req.temperature_k)
+        if exp:
             results.append({
                 "solvent_name": solvent["name"],
                 "solvent_smiles": solvent["smiles"],
-                "logS": float(logS.iloc[i]),
-                "solubility_mol_per_L": float(10 ** logS.iloc[i])
+                "logS": exp["logS"],
+                "solubility_mol_per_L": exp["solubility_mol_per_L"],
+                "solubility_g_L": exp.get("solubility_g_L"),
+                "status": "success",
+                "source": "experimental"
             })
-        results.sort(key=lambda x: x["logS"], reverse=True)
-        return {"results": results, "status": "success"}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        elif fc_model is not None:
+            try:
+                df = pd.DataFrame([{
+                    "solute_smiles_canonical": req.solute_smiles,
+                    "solvent_smiles_canonical": solvent["smiles"],
+                    "Temperature [K]": req.temperature_k,
+                    "solvent_density": solvent.get("density")
+                }])
+                logS = fc_model.calculate_solubility(df)
+                logS_value = float(logS.iloc[0])
+                results.append({
+                    "solvent_name": solvent["name"],
+                    "solvent_smiles": solvent["smiles"],
+                    "logS": logS_value,
+                    "solubility_mol_per_L": float(10 ** logS_value),
+                    "status": "success",
+                    "source": "model"
+                })
+            except Exception:
+                results.append({"solvent_name": solvent["name"], "solvent_smiles": solvent["smiles"], "logS": None, "status": "out_of_domain", "source": "model"})
+        else:
+            results.append({"solvent_name": solvent["name"], "solvent_smiles": solvent["smiles"], "logS": None, "status": "out_of_domain", "source": "none"})
+    results.sort(key=lambda x: x["logS"] if x["logS"] is not None else -999, reverse=True)
+    return {"results": results, "status": "success"}
+
