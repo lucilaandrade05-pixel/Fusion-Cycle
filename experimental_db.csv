@@ -1,0 +1,93 @@
+solute_smiles,solvent_smiles,solute_name,solvent_name,temperature_K,logS,solubility_g_L
+O=C1N(CC2=CC=CC=C2Cl)OCC1(C)C,O=C(OCCOC=1C=CC=CC1)C,Clomazone,TEX MEX,323.15,0.66,1100.0
+O=C1N(CC2=CC=CC=C2Cl)OCC1(C)C,O=C1CCC2OC1OC2,Clomazone,Cireno (Cyrene) ,298.15,0.52,800.0
+O=C1N(N)C(SC)=NN=C1C(C)(C)C,O=C(OCC)C(=O)C,Metribuzin,Ethyl pyruvate,323.15,0.51,700.0
+OC(C1(CC1)Cl)(CC2=C(Cl)C=CC=C2)CN3N=CNC3=S,CN1C(CCC1)=O,Prothioconazole,NMP,323.15,0.5,1100.0
+O=C1N(N)C(SC)=NN=C1C(C)(C)C,O=C1CCC2OC1OC2,Metribuzin,Cireno (Cyrene) ,323.15,0.45,600.0
+O=C1N(N)C(SC)=NN=C1C(C)(C)C,N#CCC(=O)OCC,Metribuzin,Ethyl cyanoacetate ,323.15,0.45,600.0
+O=C1N(CC2=CC=CC=C2Cl)OCC1(C)C,O=C(N(C)C)CCCCCCCCC,Clomazone,Surfom CE 8434,298.15,0.42,635.0
+O=C1N(CC2=CC=CC=C2Cl)OCC1(C)C,O=C(OCC)C=1C=CC=CC1,Clomazone,Ethyl Benzoate,298.15,0.41,615.0
+O=C1N(CC2=CC=CC=C2Cl)OCC1(C)C,CC(=O)OCC1=CC=CC=C1,Clomazone,Surfonic AG 1705,298.15,0.409207082,615.0
+O=C1N(CC2=CC=CC=C2Cl)OCC1(C)C,O=C(OCCCC)CCC(=O)C,Clomazone,Butyl Levulinate,298.15,0.4,605.0
+O=C1N(CC2=CC=CC=C2Cl)OCC1(C)C,OCC1OC(OC1)(C)CC,Clomazone,GBK,298.15,0.4,600.0
+O=C1N(CC2=CC=CC=C2Cl)OCC1(C)C,CN1C(CCC1)=O,Clomazone,NMP,298.15,0.4,600.0
+CNC(=O)C(=NOC)C1=CC=CC=C1OC2=CC=CC=C2,O=C(OCC)C(=O)C,Metominostrobin,Ethyl pyruvate,323.15,0.39,700.0
+CC(C1CC1)C(CN2C=NC=N2)(C3=CC=C(C=C3)Cl)O,O=C(OCC)C(=O)C,Cyproconazole,Ethyl pyruvate,323.15,0.38,700.0
+O=[N+](/N=C1NCCN\1CC2=CC=C(Cl)N=C2)[O-],CN1C(CCC1)=O,Imidacloprid,NMP,298.15,0.37,600.0
+O=[N+](/N=C1NCCN\1CC2=CC=C(Cl)N=C2)[O-],CN1C(CCC1)=O,Imidacloprid,NMP,323.15,0.37,600.0
+O=C(OC)/C(C1=CC=CC=C1OC2=NC=NC(OC3=CC=CC=C3C#N)=C2)=C/OC,CN1C(CCC1)=O,Azoxystrobin ,NMP,323.15,0.35,900.0
+OC(C(C)(C)C)(CCC1=CC=C(Cl)C=C1)CN2C=NC=N2,CN1C(CCC1)=O,Tebuconazole,NMP,298.15,0.324644741,650.0
+OC(C(C)(C)C)(CCC1=CC=C(Cl)C=C1)CN2C=NC=N2,O=C(OCC)C(=O)C,Tebuconazole,Ethyl pyruvate,298.15,0.289882635,600.0
+OC(C(C)(C)C)(CCC1=CC=C(Cl)C=C1)CN2C=NC=N2,CCCCCCc1ccccc1,Tebuconazole,Solvesso 150,323.15,0.289882635,600.0
+O=C(OC)/C(C1=CC=CC=C1OC2=NC=NC(OC3=CC=CC=C3C#N)=C2)=C/OC,O=C1CCC2OC1OC2,Azoxystrobin ,Cireno (Cyrene) ,323.15,0.27,750.0
+OC(C1(CC1)Cl)(CC2=C(Cl)C=CC=C2)CN3N=CNC3=S,OCC1OC(OC1)(C)CC,Prothioconazole,GBK,298.15,0.24,600.0
+C/C(=N\OCC1=CC=CC=C1/C(=N/OC)/C(=O)OC)/C2=CC(=CC=C2)C(F)(F)F,O=C(OCC)C(=O)C,Trifloxystrobin,Ethyl pyruvate,323.15,0.234012307,700.0
+OC(C(C)(C)C)(CCC1=CC=C(Cl)C=C1)CN2C=NC=N2,O=C(OCC)CC(=O)C,Tebuconazole,ethyl acetoacetate,323.15,0.210701389,500.0
+O=C(OC)/C(C1=CC=CC=C1OC2=NC=NC(OC3=CC=CC=C3C#N)=C2)=C/OC,CN1C(CCC1)=O,Azoxystrobin ,NMP,298.15,0.17,590.0
+OC(C(C)(C)C)(CCC1=CC=C(Cl)C=C1)CN2C=NC=N2,O=C(OCC)C(=O)C,Tebuconazole,Ethyl pyruvate,323.15,0.164943898,450.0
+CNC(=O)C(=NOC)C1=CC=CC=C1OC2=CC=CC=C2,N#CCC(=O)OCC,Metominostrobin,Ethyl cyanoacetate ,323.15,0.148283132,400.0
+O=C1N(N)C(SC)=NN=C1C(C)(C)C,O=C(OCC)C(=O)C,Metribuzin,Ethyl pyruvate,298.15,0.15,300.0
+CCNC1=NC(NC(C)C)=NC(Cl)=N1,CN1C(CCC1)=O,Atrazine,NMP,323.15,0.14327111,300.0
+CO/N=C(\C1=CC=CC=C1OC2=C(C(=NC=N2)OC3=CC=CC=C3Cl)F)/C4=NOCCO4,O=C(OCC)C(=O)C,Fluoxastrobin,Ethyl pyruvate,323.15,0.12,600.0
+C1=CC=C(C(=C1)[C@@H]2[C@@](O2)(CN3C=NC=N3)C4=CC=C(C=C4)F)Cl,O=C(OCC)C(=O)C,Epoxiconazole,Ethyl pyruvate,323.15,0.08,400.0
+CO/N=C(\C1=CC=CC=C1OC2=C(C(=NC=N2)OC3=CC=CC=C3Cl)F)/C4=NOCCO4,N#CCC(=O)OCC,Fluoxastrobin,Ethyl cyanoacetate ,323.15,0.04,500.0
+CC(C1CC1)C(CN2C=NC=N2)(C3=CC=C(C=C3)Cl)O,N#CCC(=O)OCC,Cyproconazole,Ethyl cyanoacetate ,323.15,0.01,300.0
+CC(C1CC1)C(CN2C=NC=N2)(C3=CC=C(C=C3)Cl)O,O=C(OCC)C(=O)C,Cyproconazole,Ethyl pyruvate,298.15,0.01,300.0
+OC(C1(CC1)Cl)(CC2=C(Cl)C=CC=C2)CN3N=CNC3=S,O=C(OCC)C(=O)C,Prothioconazole,Ethyl pyruvate,323.15,0.01,350.0
+C/C(=N\OCC1=CC=CC=C1/C(=N/OC)/C(=O)OC)/C2=CC(=CC=C2)C(F)(F)F,N#CCC(=O)OCC,Trifloxystrobin,Ethyl cyanoacetate ,323.15,-0.009025742,400.0
+O=[N+](/N=C1NCCN\1CC2=CC=C(Cl)N=C2)[O-],O=C1CCC2OC1OC2,Imidacloprid,Cireno (Cyrene) ,323.15,-0.01,250.0
+OC(C(C)(C)C)(CCC1=CC=C(Cl)C=C1)CN2C=NC=N2,O=C1CCC2OC1OC2,Tebuconazole,Cireno (Cyrene) ,323.15,-0.011147361,300.0
+OC(C(C)(C)C)(CCC1=CC=C(Cl)C=C1)CN2C=NC=N2,N#CCC(=O)OCC,Tebuconazole,Ethyl cyanoacetate ,323.15,-0.011147361,300.0
+OC(C(C)(C)C)(CCC1=CC=C(Cl)C=C1)CN2C=NC=N2,CC(=O)OCC1=CC=CC=C1,Tebuconazole,Surfonic AG 1705,323.15,-0.011147361,300.0
+OC(C(C)(C)C)(CCC1=CC=C(Cl)C=C1)CN2C=NC=N2,O=C(OCCOC=1C=CC=CC1)C,Tebuconazole,TEX MEX,323.15,-0.011147361,300.0
+O=C1C(C(C2=CC=C(S(C)(=O)=O)C=C2[N+]([O-])=O)=O)C(CCC1)=O,O=C1CCC2OC1OC2,Mesotrione,Cireno (Cyrene) ,323.15,-0.05,300.0
+OC(C1(CC1)Cl)(CC2=C(Cl)C=CC=C2)CN3N=CNC3=S,O=C1CCC2OC1OC2,Prothioconazole,Cireno (Cyrene) ,323.15,-0.06,300.0
+O=C1C(C(C2=CC=C(S(C)(=O)=O)C=C2[N+]([O-])=O)=O)C(CCC1)=O,CN1C(CCC1)=O,Mesotrione,NMP,298.15,-0.06,295.0
+O=C1N(CC2=CC=CC=C2Cl)OCC1(C)C,"UVCB (Unknown or Variable Composition, Complex Reaction Products)",Clomazone,Ultrafilm 2770,298.15,-0.09,193.33
+O=C(OC)/C(C1=CC=CC=C1OC2=NC=NC(OC3=CC=CC=C3C#N)=C2)=C/OC,N#CCC(=O)OCC,Azoxystrobin ,Ethyl cyanoacetate ,323.15,-0.13,300.0
+O=C(OC)/C(C1=CC=CC=C1OC2=NC=NC(OC3=CC=CC=C3C#N)=C2)=C/OC,O=C(OCC)C(=O)C,Azoxystrobin ,Ethyl pyruvate,323.15,-0.13,300.0
+OC(C1(CC1)Cl)(CC2=C(Cl)C=CC=C2)CN3N=CNC3=S,O=C(OCC)CC(=O)C,Prothioconazole,ethyl acetoacetate,323.15,-0.14,250.0
+CNC(=O)C(=NOC)C1=CC=CC=C1OC2=CC=CC=C2,N#CCC(=O)OCC,Metominostrobin,Ethyl cyanoacetate ,298.15,-0.15,200.0
+CNC(=O)C(=NOC)C1=CC=CC=C1OC2=CC=CC=C2,O=C(OCC)C(=O)C,Metominostrobin,Ethyl pyruvate,298.15,-0.152746864,200.0
+OC(C(C)(C)C)(CCC1=CC=C(Cl)C=C1)CN2C=NC=N2,O=C(OCCCC)CCC(=O)C,Tebuconazole,Butyl Levulinate,298.15,-0.18723862,200.0
+O=C(C1=CC(Br)=NN1C2=NC=CC=C2Cl)NC3=C(C(NC)=O)C=C(Cl)C=C3C,CN1C(CCC1)=O,Chlorantraniliprole ,NMP,298.15,-0.21,300.0
+O=C(C1=CC(Br)=NN1C2=NC=CC=C2Cl)NC3=C(C(NC)=O)C=C(Cl)C=C3C,CN1C(CCC1)=O,Chlorantraniliprole ,NMP,323.15,-0.21,300.0
+O=C(OC)/C(C1=CC=CC=C1OC2=NC=NC(OC3=CC=CC=C3C#N)=C2)=C/OC,O=C(OCC)CC(=O)C,Azoxystrobin ,ethyl acetoacetate,323.15,-0.207795885,250.0
+C1=CC=C(C(=C1)[C@@H]2[C@@](O2)(CN3C=NC=N3)C4=CC=C(C=C4)F)Cl,N#CCC(=O)OCC,Epoxiconazole,Ethyl cyanoacetate ,323.15,-0.22,200.0
+OC(C1(CC1)Cl)(CC2=C(Cl)C=CC=C2)CN3N=CNC3=S,O=C1CCC2OC1OC2,Prothioconazole,Cireno (Cyrene) ,298.15,-0.23,201.67
+OC(C1(CC1)Cl)(CC2=C(Cl)C=CC=C2)CN3N=CNC3=S,CCCCCCc1ccccc1,Prothioconazole,Solvesso 150,323.15,-0.24,200.0
+OC(C1(CC1)Cl)(CC2=C(Cl)C=CC=C2)CN3N=CNC3=S,CN1C(CCC1)=O,Prothioconazole,NMP,298.15,-0.24,198.33
+OC(C1(CC1)Cl)(CC2=C(Cl)C=CC=C2)CN3N=CNC3=S,O=C(OCCCC)CCC(=O)C,Prothioconazole,Butyl Levulinate,298.15,-0.24,196.67
+O=C(OC)/C(C1=CC=CC=C1OC2=NC=NC(OC3=CC=CC=C3C#N)=C2)=C/OC,O=C1CCC2OC1OC2,Azoxystrobin ,Cireno (Cyrene) ,298.15,-0.3,200.0
+O=C(OC)/C(C1=CC=CC=C1OC2=NC=NC(OC3=CC=CC=C3C#N)=C2)=C/OC,CC(=O)OCC1=CC=CC=C1,Azoxystrobin ,Surfonic AG 1705,323.15,-0.3,200.0
+OC(C1(CC1)Cl)(CC2=C(Cl)C=CC=C2)CN3N=CNC3=S,CC(=O)OCC1=CC=CC=C1,Prothioconazole,Surfonic AG 1705,298.15,-0.316175369,166.25
+O=[N+](/N=C1NCCN\1CC2=CC=C(Cl)N=C2)[O-],O=C1CCC2OC1OC2,Imidacloprid,Cireno (Cyrene) ,298.15,-0.33,120.0
+OC(C1(CC1)Cl)(CC2=C(Cl)C=CC=C2)CN3N=CNC3=S,"UVCB (Unknown or Variable Composition, Complex Reaction Products)",Prothioconazole,Ultrafilm 2770,298.15,-0.33,161.25
+O=C1N(N)C(SC)=NN=C1C(C)(C)C,N#CCC(=O)OCC,Metribuzin,Ethyl cyanoacetate ,298.15,-0.33,100.0
+CCNC1=NC(NC(C)C)=NC(Cl)=N1,O=C(OCC)C(=O)C,Atrazine,Ethyl pyruvate,323.15,-0.333850145,100.0
+O=C1C(C(C2=CC=C(S(C)(=O)=O)C=C2[N+]([O-])=O)=O)C(CCC1)=O,O=C1CCC2OC1OC2,Mesotrione,Cireno (Cyrene) ,298.15,-0.35,153.0
+OC(C1(CC1)Cl)(CC2=C(Cl)C=CC=C2)CN3N=CNC3=S,O=C(OCC)CC(=O)C,Prothioconazole,ethyl acetoacetate,298.15,-0.36,150.0
+OC(C1(CC1)Cl)(CC2=C(Cl)C=CC=C2)CN3N=CNC3=S,N#CCC(=O)OCC,Prothioconazole,Ethyl cyanoacetate ,323.15,-0.36,150.0
+CCC(C)C1C(C=CC2(O1)CC3CC(O2)CC=C(C(C(C=CC=C4COC5C4(C(C=C(C5O)C)C(=O)O3)O)C)OC6CC(C(C(O6)C)OC7CC(C(C(O7)C)O)OC)OC)C)C,O=C(OCC)C(=O)C,Abamectin,Ethyl pyruvate,323.15,-0.396995944,350.0
+O=[N+](/N=C1NCCN\1CC2=CC=C(Cl)N=C2)[O-],N#CCC(=O)OCC,Imidacloprid,Ethyl cyanoacetate ,323.15,-0.41,100.0
+OC(C1(CC1)Cl)(CC2=C(Cl)C=CC=C2)CN3N=CNC3=S,O=C(OCC)C=1C=CC=CC1,Prothioconazole,Ethyl Benzoate,298.15,-0.47,118.0
+CC(C1CC1)C(CN2C=NC=N2)(C3=CC=C(C=C3)Cl)O,N#CCC(=O)OCC,Cyproconazole,Ethyl cyanoacetate ,298.15,-0.47,100.0
+OC(C(C)(C)C)(CCC1=CC=C(Cl)C=C1)CN2C=NC=N2,O=C(OCC)CC(=O)C,Tebuconazole,ethyl acetoacetate,298.15,-0.488268615,100.0
+C1=CC=C(C(=C1)[C@@H]2[C@@](O2)(CN3C=NC=N3)C4=CC=C(C=C4)F)Cl,O=C(OCC)C(=O)C,Epoxiconazole,Ethyl pyruvate,298.15,-0.52,100.0
+O=C1C(C(C2=CC=C(S(C)(=O)=O)C=C2[N+]([O-])=O)=O)C(CCC1)=O,N#CCC(=O)OCC,Mesotrione,Ethyl cyanoacetate ,323.15,-0.53,100.0
+O=C1C(C(C2=CC=C(S(C)(=O)=O)C=C2[N+]([O-])=O)=O)C(CCC1)=O,O=C(OCC)C(=O)C,Mesotrione,Ethyl pyruvate,323.15,-0.53,100.0
+OC(C1(CC1)Cl)(CC2=C(Cl)C=CC=C2)CN3N=CNC3=S,N#CCC(=O)OCC,Prothioconazole,Ethyl cyanoacetate ,298.15,-0.54,100.0
+OC(C1(CC1)Cl)(CC2=C(Cl)C=CC=C2)CN3N=CNC3=S,O=C(OCC)C(=O)C,Prothioconazole,Ethyl pyruvate,298.15,-0.54,100.0
+OC(C1(CC1)Cl)(CC2=C(Cl)C=CC=C2)CN3N=CNC3=S,O=C(OCCOC=1C=CC=CC1)C,Prothioconazole,TEX MEX,323.15,-0.54,100.0
+O=C(OC)/C(C1=CC=CC=C1OC2=NC=NC(OC3=CC=CC=C3C#N)=C2)=C/OC,O=C(OCCOC=1C=CC=CC1)C,Azoxystrobin ,TEX MEX,323.15,-0.61,100.0
+C/C(=N\OCC1=CC=CC=C1/C(=N/OC)/C(=O)OC)/C2=CC(=CC=C2)C(F)(F)F,N#CCC(=O)OCC,Trifloxystrobin,Ethyl cyanoacetate ,298.15,-0.611085733,100.0
+C/C(=N\OCC1=CC=CC=C1/C(=N/OC)/C(=O)OC)/C2=CC(=CC=C2)C(F)(F)F,O=C(OCC)C(=O)C,Trifloxystrobin,Ethyl pyruvate,298.15,-0.611085733,100.0
+CCC(C)C1C(C=CC2(O1)CC3CC(O2)CC=C(C(C(C=CC=C4COC5C4(C(C=C(C5O)C)C(=O)O3)O)C)OC6CC(C(C(O6)C)OC7CC(C(C(O7)C)O)OC)OC)C)C,CN1C(CCC1)=O,Abamectin,NMP,298.15,-0.63292661,203.3
+CCC(C)C1C(C=CC2(O1)CC3CC(O2)CC=C(C(C(C=CC=C4COC5C4(C(C=C(C5O)C)C(=O)O3)O)C)OC6CC(C(C(O6)C)OC7CC(C(C(O7)C)O)OC)OC)C)C,CC(=O)OCC1=CC=CC=C1,Abamectin,Surfonic AG 1705,323.15,-0.640033993,200.0
+CO/N=C(\C1=CC=CC=C1OC2=C(C(=NC=N2)OC3=CC=CC=C3Cl)F)/C4=NOCCO4,N#CCC(=O)OCC,Fluoxastrobin,Ethyl cyanoacetate ,298.15,-0.66,100.0
+CO/N=C(\C1=CC=CC=C1OC2=C(C(=NC=N2)OC3=CC=CC=C3Cl)F)/C4=NOCCO4,O=C(OCC)C(=O)C,Fluoxastrobin,Ethyl pyruvate,298.15,-0.66,100.0
+FC1=CC=CC(F)=C1C(NC(NC2=C(Cl)C=C(OC(F)(F)C(C(F)(F)F)F)C(Cl)=C2)=O)=O,O=C(OCC)C(=O)C,Lufenuron,Ethyl pyruvate,323.15,-0.71,100.0
+CCC(C)C1C(C=CC2(O1)CC3CC(O2)CC=C(C(C(C=CC=C4COC5C4(C(C=C(C5O)C)C(=O)O3)O)C)OC6CC(C(C(O6)C)OC7CC(C(C(O7)C)O)OC)OC)C)C,OCC1OC(OC1)(C)CC,Abamectin,GBK,298.15,-0.757794145,152.5
+CCC(C)C1C(C=CC2(O1)CC3CC(O2)CC=C(C(C(C=CC=C4COC5C4(C(C=C(C5O)C)C(=O)O3)O)C)OC6CC(C(C(O6)C)OC7CC(C(C(O7)C)O)OC)OC)C)C,CC(=O)OCC1=CC=CC=C1,Abamectin,Surfonic AG 1705,298.15,-0.872878126,117.0
+CCC(C)C1C(C=CC2(O1)CC3CC(O2)CC=C(C(C(C=CC=C4COC5C4(C(C=C(C5O)C)C(=O)O3)O)C)OC6CC(C(C(O6)C)OC7CC(C(C(O7)C)O)OC)OC)C)C,O=C1CCC2OC1OC2,Abamectin,Cireno (Cyrene) ,323.15,-0.941063988,100.0
+
